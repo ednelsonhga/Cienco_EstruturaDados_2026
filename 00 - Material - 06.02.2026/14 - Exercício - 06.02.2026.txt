@@ -1,0 +1,41 @@
+14)
+
+#include <iostream>
+#include <locale>
+#include <iomanip>
+
+using namespace std;
+
+int main(){
+
+    setlocale(LC_ALL, "portuguese");
+    int Opcao = 0;
+    cout << "Métodos de pagamento:" << endl;
+    cout << "01 - Consórcio" << endl;
+    cout << "02 - Financiamento" << endl;
+    cout << "03 - Cartão de Crédito" << endl;
+    cout << "Escolha um dos métodos listados acima (1, 2 ou 3): ";
+    cin >> Opcao;
+
+    if(Opcao < 1 || Opcao > 3){
+        do{
+            cout << "Escolha um método válido: ";
+            cin >> Opcao;
+        }while(Opcao < 0 || Opcao > 3);
+    }
+
+    cout << endl;
+    cout << "A opcão escolhida foi:" << endl;
+
+    switch(Opcao){
+        case 1:
+            cout << "01 - Consórcio" << endl;
+            break;
+        case 2:
+            cout << "02 - Financiamento" << endl;
+            break;
+        case 3:
+            cout << "03 - Cartão de Crédito" << endl;
+        break;
+    }
+}

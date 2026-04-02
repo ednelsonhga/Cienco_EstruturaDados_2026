@@ -1,0 +1,35 @@
+3)
+
+#include <iostream>
+#include <locale>
+#include <iomanip>
+
+using namespace std;
+
+int main(){
+
+    setlocale(LC_ALL, "portuguese");
+    std::cout << std::fixed << std::setprecision(2);
+    float SalarioMinimo, JornadaTrabalho, HoraTrabalhada, SalarioHora, Imposto, SalarioBruto, SalarioLiquido;
+
+    cout << "Entre com o salário mínimo: R$ ";
+    cin >> SalarioMinimo;
+
+    cout << "Entre com as horas trabalhadas: ";
+    cin >> HoraTrabalhada;
+
+    JornadaTrabalho = 44;
+    SalarioHora = SalarioMinimo/JornadaTrabalho;
+    Imposto = 0.03;
+    SalarioBruto = SalarioHora * HoraTrabalhada;
+    SalarioLiquido = SalarioBruto - (SalarioBruto * Imposto);
+
+    cout << "Com o salário mínimo a R$ " << SalarioMinimo << " e a jornada de trabalho normal sendo " << JornadaTrabalho << " horas, o salário por hora fica em R$ " << SalarioHora << "." << endl;
+    cout << endl;
+    cout << "Segue abaixo os cálculos realizados:" << endl;
+    cout << "Horas trabalhadas: " << HoraTrabalhada << endl;
+    cout << "Salário bruto: R$ " << SalarioBruto << endl;
+    cout << "Imposto: " << Imposto * 100 << "% - R$ " << SalarioBruto * Imposto << endl;
+    cout << "Salário líquido: R$ " << SalarioLiquido << endl;
+
+}

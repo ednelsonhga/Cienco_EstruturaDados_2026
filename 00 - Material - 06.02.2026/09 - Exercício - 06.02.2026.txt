@@ -1,0 +1,30 @@
+9)
+
+#include <iostream>
+#include <locale>
+#include <iomanip>
+
+using namespace std;
+
+int main(){
+
+    setlocale(LC_ALL, "portuguese");
+    std::cout << std::fixed << std::setprecision(2);
+    float AlturaAlunos[10], MaiorAluno = 0;
+    int NumAluno = 0;
+
+    for(int i = 1; i <= 10; i++){
+        cout << "Entre com a altura do aluno 0" << i << ": ";
+        cin >> AlturaAlunos[i-1];
+    }
+
+    for(int i = 1; i <= 10; i++){
+        if (AlturaAlunos[i-1] > MaiorAluno){
+            MaiorAluno = AlturaAlunos[i-1];
+            NumAluno = i;
+        }
+    }
+
+    cout << "O maior aluno é o número 0" << NumAluno << ", com a altura de: " << MaiorAluno << endl;
+
+}

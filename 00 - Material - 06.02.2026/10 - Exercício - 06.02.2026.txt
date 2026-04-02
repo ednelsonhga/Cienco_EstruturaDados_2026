@@ -1,0 +1,76 @@
+10)
+
+#include <iostream>
+#include <locale>
+#include <iomanip>
+
+using namespace std;
+
+int Opiniao(){
+
+    int Res;
+    cout << "Código // Opinião" << endl;
+    cout << "01 - Ótimo" << endl;
+    cout << "02 - Bom" << endl;
+    cout << "03 - Regular" << endl;
+    cout << "04 - Ruim" << endl;
+    cout << "Entre com sua opinião: ";
+    cin >> Res;
+
+    if(Res < 1 || Res > 4){
+        do{
+            cout << "Entre com uma opinião válida: ";
+            cin >> Res;
+        }while(Res < 1 || Res > 4);
+    }
+
+    cout << endl;
+    return Res;
+}
+
+int main(){
+
+    setlocale(LC_ALL, "portuguese");
+    std::cout << std::fixed << std::setprecision(0);
+    int Idade = 0, SomaIdade = 0, Qtde = 0;
+    char Res;
+    int Opinioes[4] = {0,0,0,0};
+
+    cout << "Pesquisa Cinema" << endl;
+    cout << endl;
+    cout << "Gostaria de responder a pesquisa? (s ou n): ";
+    cin >> Res;
+
+    if(Res == 's'){
+        do{
+            cout << "Entre com sua idade: ";
+            cin >> Idade;
+
+            if(Idade < 1){
+                do{
+                    cout << "Entre com uma idade válida: ";
+                    cin >> Idade;
+                }while(Idade < 1);
+            }
+
+            Opinioes[Opiniao()-1] += 1;
+            SomaIdade += Idade;
+            Qtde += 1;
+
+            cout << "Gostaria de responder a pesquisa? (s ou n): ";
+            cin >> Res;
+
+        }while(Res == 's');
+    }
+
+    float ValorA = SomaIdade, ValorB = Qtde;
+    cout << "Total de respostas: " << Qtde << endl;
+    cout << "Média de idade: " << ValorA / ValorB << endl;
+    cout << endl;
+    cout << "Resultados" << endl;
+
+    for(int i = 1; i <= 4; i++){
+        ValorA = Opinioes[i-1];
+        cout << "0" << i << " = " << (ValorA / ValorB) * 100 << "%" << endl;
+    }
+}

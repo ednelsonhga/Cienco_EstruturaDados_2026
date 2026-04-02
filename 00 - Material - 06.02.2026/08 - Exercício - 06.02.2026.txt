@@ -1,0 +1,57 @@
+8)
+
+#include <iostream>
+#include <locale>
+#include <iomanip>
+
+using namespace std;
+
+int VerificacaoVoto(int Eleitor){
+
+    int Voto;
+    cout << "Eleitor Nº " << Eleitor << "." << endl;
+    cout << "1 - Candidato A" << endl;
+    cout << "2 - Candidato B" << endl;
+    cout << "3 - Nulo" << endl;
+    cout << "4 - Branco" << endl;
+
+    cout << "Entre com seu voto: ";
+    cin >> Voto;
+
+    if(Voto < 1 || Voto > 4){
+        do{
+            cout << "Entre com um voto válido: ";
+            cin >> Voto;
+        }while(Voto < 1 || Voto > 4);
+    }
+
+    return Voto - 1;
+}
+
+int main(){
+
+    setlocale(LC_ALL, "portuguese");
+    std::cout << std::fixed << std::setprecision(2);
+    int NumeroVotos, Votos[4] = {0,0,0,0};
+
+    cout << "Lançamento de Votos" << endl;
+    cout << endl;
+
+    cout << "Entre com o número de eleitores: ";
+    cin >> NumeroVotos;
+    cout << endl;
+
+    for(int i = 1; i <= NumeroVotos; i++){
+        Votos[VerificacaoVoto(i)] += 1;
+        cout << endl;
+    }
+
+    float ValorA = 0, ValorB = NumeroVotos, Resultado = 0
+    for(int i = 1; i <= 4; i++){
+        ValorA = Votos[i-1];
+        Resultado = (ValorA / ValorB) 100;
+        cout << "Votos " << i << " = " << Votos[i-1] << endl;
+        cout << Resultado  << "%" << endl;
+        cout << endl;
+    }
+}

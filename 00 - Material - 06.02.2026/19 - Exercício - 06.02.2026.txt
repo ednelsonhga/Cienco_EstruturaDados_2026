@@ -1,0 +1,41 @@
+19)
+
+#include <iostream>
+#include <locale>
+#include <iomanip>
+
+using namespace std;
+
+int main(){
+
+    setlocale(LC_ALL, "portuguese");
+    std::cout << std::fixed << std::setprecision(2);
+    float Nota = 0, NotaAcumulativa = 0;
+    int Contagem = 0;
+    char Res;
+
+    cout << "Deseja digitar a nota de um aluno? (s ou n): ";
+    cin >> Res;
+
+    if(Res == 's'){
+        do{
+            cout << "Entre com a nota do aluno: ";
+            cin >> Nota;
+
+            if(Nota < 0 || Nota > 10){
+                do{
+                    cout << "Digite uma nota válida: ";
+                    cin >> Nota;
+                }while(Nota < 0 || Nota > 10);
+            }
+
+            NotaAcumulativa += Nota;
+            Contagem += 1;
+
+            cout << "Deseja digitar a nota de um aluno? (s ou n): ";
+            cin >> Res;
+        }while(Res == 's');
+
+        cout << "A media da turma foi de: " << NotaAcumulativa / Contagem << ".";
+    }
+}

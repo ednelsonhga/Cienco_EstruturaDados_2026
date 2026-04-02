@@ -1,0 +1,36 @@
+16)
+
+#include <iostream>
+#include <locale>
+#include <iomanip>
+
+using namespace std;
+
+int main(){
+
+    setlocale(LC_ALL, "portuguese");
+    int Valor = 0, Soma = 0;
+    char Res;
+
+    cout << "Deseja digitar algum valor? (s ou n): ";
+    cin >> Res;
+
+    if(Res == 's'){
+        do{
+            cout << "Entre com um número positivo inteiro: ";
+            cin >> Valor;
+
+            if(Valor < 0){
+                do{
+                    cout << "Entre com um valor válido: ";
+                    cin >> Valor;
+                }while(Valor < 0);
+            }
+            Soma += Valor;
+
+            cout << "Deseja digitar algum valor? (s ou n): ";
+            cin >> Res;
+        }while(Res == 's');
+    }
+    cout << "A soma dos valores é " << Soma << "." << endl;
+}

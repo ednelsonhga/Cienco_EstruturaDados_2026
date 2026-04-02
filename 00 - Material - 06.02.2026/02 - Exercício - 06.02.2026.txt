@@ -1,0 +1,29 @@
+2)
+
+#include <iostream>
+#include <locale>
+
+using namespace std;
+
+int main()
+{
+    setlocale(LC_ALL, "portuguese");
+    int idade;
+
+    cout << "Entre com sua idade: ";
+    cin >> idade;
+
+    if (idade < 5){
+        cout << "Idade não permitida para natação!";
+    }else if (idade < 8){
+        cout << "Categoria: Infantil A para natação.";
+    }else if (idade < 11){
+        cout << "Categoria: Infantil B para natação.";
+    }else if (idade < 14){
+        cout << "Categoria: Juvenil A para natação.";
+    }else if (idade < 18){
+        cout << "Categoria: Juvenil B para natação.";
+    }else{
+        cout << "Categoria: Senior para natação.";
+    }
+}

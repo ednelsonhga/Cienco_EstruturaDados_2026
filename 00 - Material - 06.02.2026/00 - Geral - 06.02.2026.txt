@@ -1,0 +1,676 @@
+1)
+
+#include <iostream>
+#include <locale>
+
+using namespace std;
+
+int main()
+{
+    setlocale(LC_ALL, "portuguese");
+    int peso;
+    float altura, imc;
+
+    cout << "Entre com seu peso em KG: ";
+    cin >> peso;
+
+    cout << "Entre com sua altura em CM: ";
+    cin >> altura;
+
+    altura /= 100;
+    imc = peso/(altura*altura);
+
+    if (imc < 20){
+        cout << "Você está abaixo do peso!";
+    }else if (imc < 25){
+        cout << "Você está no peso ideal!";
+    }else{
+        cout << "Você está acima do peso!";
+    }
+}
+
+2)
+
+#include <iostream>
+#include <locale>
+
+using namespace std;
+
+int main()
+{
+    setlocale(LC_ALL, "portuguese");
+    int idade;
+
+    cout << "Entre com sua idade: ";
+    cin >> idade;
+
+    if (idade < 5){
+        cout << "Idade não permitida para natação!";
+    }else if (idade < 8){
+        cout << "Categoria: Infantil A para natação.";
+    }else if (idade < 11){
+        cout << "Categoria: Infantil B para natação.";
+    }else if (idade < 14){
+        cout << "Categoria: Juvenil A para natação.";
+    }else if (idade < 18){
+        cout << "Categoria: Juvenil B para natação.";
+    }else{
+        cout << "Categoria: Senior para natação.";
+    }
+}
+
+3)
+
+#include <iostream>
+#include <locale>
+#include <iomanip>
+
+using namespace std;
+
+int main(){
+
+    setlocale(LC_ALL, "portuguese");
+    std::cout << std::fixed << std::setprecision(2);
+    float SalarioMinimo, JornadaTrabalho, HoraTrabalhada, SalarioHora, Imposto, SalarioBruto, SalarioLiquido;
+
+    cout << "Entre com o salário mínimo: R$ ";
+    cin >> SalarioMinimo;
+
+    cout << "Entre com as horas trabalhadas: ";
+    cin >> HoraTrabalhada;
+
+    JornadaTrabalho = 44;
+    SalarioHora = SalarioMinimo/JornadaTrabalho;
+    Imposto = 0.03;
+    SalarioBruto = SalarioHora * HoraTrabalhada;
+    SalarioLiquido = SalarioBruto - (SalarioBruto * Imposto);
+
+    cout << "Com o salário mínimo a R$ " << SalarioMinimo << " e a jornada de trabalho normal sendo " << JornadaTrabalho << " horas, o salário por hora fica em R$ " << SalarioHora << "." << endl;
+    cout << endl;
+    cout << "Segue abaixo os cálculos realizados:" << endl;
+    cout << "Horas trabalhadas: " << HoraTrabalhada << endl;
+    cout << "Salário bruto: R$ " << SalarioBruto << endl;
+    cout << "Imposto: " << Imposto * 100 << "% - R$ " << SalarioBruto * Imposto << endl;
+    cout << "Salário líquido: R$ " << SalarioLiquido << endl;
+
+}
+
+4)
+
+#include <iostream>
+#include <locale>
+#include <iomanip>
+
+using namespace std;
+
+int main(){
+
+    setlocale(LC_ALL, "portuguese");
+    std::cout << std::fixed << std::setprecision(2);
+    float SalarioFuncionario, Reajuste, ValorReajuste, SalarioFinal;
+
+    cout << "Cálculo de Reajuste" << endl;
+    cout << endl;
+    cout << "Entre com seu salário: R$ ";
+    cin >> SalarioFuncionario;
+
+    if(SalarioFuncionario < 1000){
+        Reajuste = 0.15;
+    }else if (SalarioFuncionario <= 1500){
+        Reajuste = 0.10;
+    }else{
+        Reajuste = 0.05;
+    }
+
+    ValorReajuste = SalarioFuncionario * Reajuste;
+    SalarioFinal  = SalarioFuncionario + ValorReajuste;
+
+    cout << "Seu reajuste será de: R$ " << ValorReajuste << endl;
+    cout << "Salário final: R$ " << SalarioFinal << endl;
+
+}
+
+5)
+
+#include <iostream>
+#include <locale>
+#include <iomanip>
+
+using namespace std;
+
+int main(){
+
+    setlocale(LC_ALL, "portuguese");
+    std::cout << std::fixed << std::setprecision(2);
+    float ValorProduto;
+    int CondPgto;
+
+    cout << "Entre com o valor do produto: R$ ";
+    cin >> ValorProduto;
+
+    cout << "Entre com o código na etiqueta (1, 2, 3 ou 4): ";
+    cin >> CondPgto;
+
+    switch(CondPgto){
+    case 1:
+        cout << "À vista em dinheiro ou cheque, com 10% de desconto." << endl;
+        cout << "Valor do produto: R$ " << ValorProduto << endl;
+        cout << "Desconto: R$ " << ValorProduto * 0.1 << endl;
+        cout << "Valor final: R$ " << ValorProduto - (ValorProduto * 0.1) << endl;
+        break;
+    case 2:
+        cout << "À vista com cartão de crédito, com 5% de desconto." << endl;
+        cout << "Valor do produto: R$ " << ValorProduto << endl;
+        cout << "Desconto: R$ " << ValorProduto * 0.05 << endl;
+        cout << "Valor final: R$ " << ValorProduto - (ValorProduto * 0.05) << endl;
+        break;
+    case 3:
+        cout << "Em 2 vezes, preço normal da etiqueta sem juros." << endl;
+        cout << "Valor do produto: R$ " << ValorProduto << endl;
+        cout << "Desconto: R$ " << ValorProduto * 0.0 << endl;
+        cout << "Valor final: R$ " << ValorProduto - (ValorProduto * 0.0) << endl;
+        break;
+    case 4:
+        cout << "Em 3 vezes, preço normal da etiqueta com acrécimo de 10%.";
+        cout << "Valor do produto: R$ " << ValorProduto << endl;
+        cout << "Acréscimo: R$ " << ValorProduto * 0.1 << endl;
+        cout << "Valor final: R$ " << ValorProduto + (ValorProduto * 0.1) << endl;
+        break;
+    }
+
+}
+
+6)
+
+#include <iostream>
+
+using namespace std;
+
+int main(){
+
+    cout << "Quadrados" << endl;
+    for(int i = 1; i <= 20; i++){
+        cout << i << "*" << i << ": " << i*i << endl;
+    }
+}
+
+7)
+
+#include <iostream>
+#include <locale>
+
+using namespace std;
+
+int main(){
+
+    setlocale(LC_ALL, "portuguese");
+    cout << "Múltiplos de 5 até 500" << endl;
+    for(int i = 1; i <= 500; i++){
+        if(i % 5 == 0){
+            cout << i << "*5: " << i*5 << endl;
+        }
+    }
+}
+
+8)
+
+#include <iostream>
+#include <locale>
+#include <iomanip>
+
+using namespace std;
+
+int VerificacaoVoto(int Eleitor){
+
+    int Voto;
+    cout << "Eleitor Nº " << Eleitor << "." << endl;
+    cout << "1 - Candidato A" << endl;
+    cout << "2 - Candidato B" << endl;
+    cout << "3 - Nulo" << endl;
+    cout << "4 - Branco" << endl;
+
+    cout << "Entre com seu voto: ";
+    cin >> Voto;
+
+    if(Voto < 1 || Voto > 4){
+        do{
+            cout << "Entre com um voto válido: ";
+            cin >> Voto;
+        }while(Voto < 1 || Voto > 4);
+    }
+
+    return Voto - 1;
+}
+
+int main(){
+
+    setlocale(LC_ALL, "portuguese");
+    std::cout << std::fixed << std::setprecision(2);
+    int NumeroVotos, Votos[4] = {0,0,0,0};
+
+    cout << "Lançamento de Votos" << endl;
+    cout << endl;
+
+    cout << "Entre com o número de eleitores: ";
+    cin >> NumeroVotos;
+    cout << endl;
+
+    for(int i = 1; i <= NumeroVotos; i++){
+        Votos[VerificacaoVoto(i)] += 1;
+        cout << endl;
+    }
+
+    float ValorA = 0, ValorB = NumeroVotos, Resultado = 0
+    for(int i = 1; i <= 4; i++){
+        ValorA = Votos[i-1];
+        Resultado = (ValorA / ValorB) 100;
+        cout << "Votos " << i << " = " << Votos[i-1] << endl;
+        cout << Resultado  << "%" << endl;
+        cout << endl;
+    }
+}
+
+9)
+
+#include <iostream>
+#include <locale>
+#include <iomanip>
+
+using namespace std;
+
+int main(){
+
+    setlocale(LC_ALL, "portuguese");
+    std::cout << std::fixed << std::setprecision(2);
+    float AlturaAlunos[10], MaiorAluno = 0;
+    int NumAluno = 0;
+
+    for(int i = 1; i <= 10; i++){
+        cout << "Entre com a altura do aluno 0" << i << ": ";
+        cin >> AlturaAlunos[i-1];
+    }
+
+    for(int i = 1; i <= 10; i++){
+        if (AlturaAlunos[i-1] > MaiorAluno){
+            MaiorAluno = AlturaAlunos[i-1];
+            NumAluno = i;
+        }
+    }
+
+    cout << "O maior aluno é o número 0" << NumAluno << ", com a altura de: " << MaiorAluno << endl;
+
+}
+
+10)
+
+#include <iostream>
+#include <locale>
+#include <iomanip>
+
+using namespace std;
+
+int Opiniao(){
+
+    int Res;
+    cout << "Código // Opinião" << endl;
+    cout << "01 - Ótimo" << endl;
+    cout << "02 - Bom" << endl;
+    cout << "03 - Regular" << endl;
+    cout << "04 - Ruim" << endl;
+    cout << "Entre com sua opinião: ";
+    cin >> Res;
+
+    if(Res < 1 || Res > 4){
+        do{
+            cout << "Entre com uma opinião válida: ";
+            cin >> Res;
+        }while(Res < 1 || Res > 4);
+    }
+
+    cout << endl;
+    return Res;
+}
+
+int main(){
+
+    setlocale(LC_ALL, "portuguese");
+    std::cout << std::fixed << std::setprecision(0);
+    int Idade = 0, SomaIdade = 0, Qtde = 0;
+    char Res;
+    int Opinioes[4] = {0,0,0,0};
+
+    cout << "Pesquisa Cinema" << endl;
+    cout << endl;
+    cout << "Gostaria de responder a pesquisa? (s ou n): ";
+    cin >> Res;
+
+    if(Res == 's'){
+        do{
+            cout << "Entre com sua idade: ";
+            cin >> Idade;
+
+            if(Idade < 1){
+                do{
+                    cout << "Entre com uma idade válida: ";
+                    cin >> Idade;
+                }while(Idade < 1);
+            }
+
+            Opinioes[Opiniao()-1] += 1;
+            SomaIdade += Idade;
+            Qtde += 1;
+
+            cout << "Gostaria de responder a pesquisa? (s ou n): ";
+            cin >> Res;
+
+        }while(Res == 's');
+    }
+
+    float ValorA = SomaIdade, ValorB = Qtde;
+    cout << "Total de respostas: " << Qtde << endl;
+    cout << "Média de idade: " << ValorA / ValorB << endl;
+    cout << endl;
+    cout << "Resultados" << endl;
+
+    for(int i = 1; i <= 4; i++){
+        ValorA = Opinioes[i-1];
+        cout << "0" << i << " = " << (ValorA / ValorB) * 100 << "%" << endl;
+    }
+}
+
+11)
+
+#include <iostream>
+#include <locale>
+#include <iomanip>
+
+using namespace std;
+
+int main(){
+
+    setlocale(LC_ALL, "portuguese");
+    int Num = 0;
+    cout << "Entre com um número inteiro: ";
+    cin >> Num;
+
+    if(Num % 2 == 0){
+        cout << "O número " << Num << " é par.";
+    }else{
+        cout << "O número " << Num << " é impar.";
+    }
+
+}
+
+12)
+
+#include <iostream>
+#include <locale>
+#include <iomanip>
+
+using namespace std;
+
+int main(){
+
+    setlocale(LC_ALL, "portuguese");
+    int Numeros[3] = {0,0,0}, Maior = 0;
+
+    for(int i = 1; i <= 3; i++){
+        cout << i << "º valor: ";
+        cin >> Numeros[i-1];
+        cout << endl;
+    }
+
+    for(int i = 1; i <= 3; i++){
+        if (Numeros[i-1] > Maior){
+            Maior = Numeros[i-1];
+        }
+    }
+    cout << "O maior é o número: " << Maior << endl;
+}
+
+13)
+
+#include <iostream>
+#include <locale>
+#include <iomanip>
+
+using namespace std;
+
+int main(){
+
+    setlocale(LC_ALL, "portuguese");
+    float Nota = 0;
+
+    cout << "Entre com a nota: ";
+    cin >> Nota;
+
+    if(Nota < 0 || Nota > 10){
+        do{
+            cout << "Entre com uma nota válida: ";
+            cin >> Nota;
+        }while(Nota < 0 || Nota > 10);
+    }
+
+    if(Nota < 4){
+        cout << "Status: Reprovado." << endl;
+    }else if(Nota < 6){
+        cout << "Status: Recuperação." << endl;
+    }else{
+        cout << "Status: 4Aprovado." << endl;
+    }
+}
+
+14)
+
+#include <iostream>
+#include <locale>
+#include <iomanip>
+
+using namespace std;
+
+int main(){
+
+    setlocale(LC_ALL, "portuguese");
+    int Opcao = 0;
+    cout << "Métodos de pagamento:" << endl;
+    cout << "01 - Consórcio" << endl;
+    cout << "02 - Financiamento" << endl;
+    cout << "03 - Cartão de Crédito" << endl;
+    cout << "Escolha um dos métodos listados acima (1, 2 ou 3): ";
+    cin >> Opcao;
+
+    if(Opcao < 1 || Opcao > 3){
+        do{
+            cout << "Escolha um método válido: ";
+            cin >> Opcao;
+        }while(Opcao < 0 || Opcao > 3);
+    }
+
+    cout << endl;
+    cout << "A opcão escolhida foi:" << endl;
+
+    switch(Opcao){
+        case 1:
+            cout << "01 - Consórcio" << endl;
+            break;
+        case 2:
+            cout << "02 - Financiamento" << endl;
+            break;
+        case 3:
+            cout << "03 - Cartão de Crédito" << endl;
+        break;
+    }
+}
+
+15)
+
+#include <iostream>
+
+using namespace std;
+
+int main(){
+    for(int i = 1; i <= 100; i++){
+        cout << i << endl;
+    }
+}
+
+16)
+
+#include <iostream>
+#include <locale>
+#include <iomanip>
+
+using namespace std;
+
+int main(){
+
+    setlocale(LC_ALL, "portuguese");
+    int Valor = 0, Soma = 0;
+    char Res;
+
+    cout << "Deseja digitar algum valor? (s ou n): ";
+    cin >> Res;
+
+    if(Res == 's'){
+        do{
+            cout << "Entre com um número positivo inteiro: ";
+            cin >> Valor;
+
+            if(Valor < 0){
+                do{
+                    cout << "Entre com um valor válido: ";
+                    cin >> Valor;
+                }while(Valor < 0);
+            }
+            Soma += Valor;
+
+            cout << "Deseja digitar algum valor? (s ou n): ";
+            cin >> Res;
+        }while(Res == 's');
+    }
+    cout << "A soma dos valores é " << Soma << "." << endl;
+}
+
+17)
+
+#include <iostream>
+#include <locale>
+#include <iomanip>
+
+using namespace std;
+
+int main(){
+
+    setlocale(LC_ALL, "portuguese");
+    int Valor = 0;
+
+    cout << "Entre com um valor inteiro entre 0 e 10: ";
+    cin >> Valor;
+
+    if(Valor < 0 || Valor > 10){
+        do{
+            cout << "Entre com um valor válido: ";
+            cin >> Valor;
+        }while(Valor < 0 || Valor > 10);
+    }
+    cout << endl;
+    cout << "Valor setado corretamente: " << Valor << ".";
+}
+
+18)
+
+#include <iostream>
+#include <locale>
+#include <iomanip>
+
+using namespace std;
+
+int main(){
+
+    setlocale(LC_ALL, "portuguese");
+    int Valor = 0;
+
+    cout << "Entre com um número positivo inteiro: ";
+    cin >> Valor;
+
+    if(Valor < 0){
+        do{
+            cout << "Entre com um valor válido: ";
+            cin >> Valor;
+        }while(Valor < 0);
+    }
+
+    for(int i = 1; i <= 10; i++){
+        cout << Valor << " x " << i << " = " << Valor * i << endl;
+    }
+}
+
+19)
+
+#include <iostream>
+#include <locale>
+#include <iomanip>
+
+using namespace std;
+
+int main(){
+
+    setlocale(LC_ALL, "portuguese");
+    std::cout << std::fixed << std::setprecision(2);
+    float Nota = 0, NotaAcumulativa = 0;
+    int Contagem = 0;
+    char Res;
+
+    cout << "Deseja digitar a nota de um aluno? (s ou n): ";
+    cin >> Res;
+
+    if(Res == 's'){
+        do{
+            cout << "Entre com a nota do aluno: ";
+            cin >> Nota;
+
+            if(Nota < 0 || Nota > 10){
+                do{
+                    cout << "Digite uma nota válida: ";
+                    cin >> Nota;
+                }while(Nota < 0 || Nota > 10);
+            }
+
+            NotaAcumulativa += Nota;
+            Contagem += 1;
+
+            cout << "Deseja digitar a nota de um aluno? (s ou n): ";
+            cin >> Res;
+        }while(Res == 's');
+
+        cout << "A media da turma foi de: " << NotaAcumulativa / Contagem << ".";
+    }
+}
+
+20)
+
+#include <iostream>
+#include <locale>
+#include <iomanip>
+
+using namespace std;
+
+int main(){
+
+    setlocale(LC_ALL, "portuguese");
+    int Valor = 0;
+
+    cout << "Entre com um valor positivo inteiro: ";
+    cin >> Valor;
+
+    if(Valor < 0){
+        do{
+            cout << "Entre com um valor válido: ";
+            cin >> Valor;
+        }while(Valor < 0);
+    }
+
+    for(Valor; Valor >= 0; Valor--){
+        cout << Valor << endl;
+    }
+}

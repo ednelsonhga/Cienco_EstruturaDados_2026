@@ -1,0 +1,27 @@
+18)
+
+#include <iostream>
+#include <locale>
+#include <iomanip>
+
+using namespace std;
+
+int main(){
+
+    setlocale(LC_ALL, "portuguese");
+    int Valor = 0;
+
+    cout << "Entre com um número positivo inteiro: ";
+    cin >> Valor;
+
+    if(Valor < 0){
+        do{
+            cout << "Entre com um valor válido: ";
+            cin >> Valor;
+        }while(Valor < 0);
+    }
+
+    for(int i = 1; i <= 10; i++){
+        cout << Valor << " x " << i << " = " << Valor * i << endl;
+    }
+}

@@ -1,0 +1,32 @@
+13)
+
+#include <iostream>
+#include <locale>
+#include <iomanip>
+
+using namespace std;
+
+int main(){
+
+    setlocale(LC_ALL, "portuguese");
+    float Nota = 0;
+
+    cout << "Entre com a nota: ";
+    cin >> Nota;
+
+    if(Nota < 0 || Nota > 10){
+        do{
+            cout << "Entre com uma nota válida: ";
+            cin >> Nota;
+        }while(Nota < 0 || Nota > 10);
+    }
+
+    if(Nota < 4){
+        cout << "Status: Reprovado." << endl;
+    }else if(Nota < 6){
+        cout << "Status: Recuperação." << endl;
+    }else{
+        cout << "Status: 4Aprovado." << endl;
+    }
+}
+
