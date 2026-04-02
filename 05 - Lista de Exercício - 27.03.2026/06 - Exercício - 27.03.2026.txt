@@ -1,0 +1,124 @@
+6)
+
+#include <iostream>
+#include <locale>
+
+using namespace std;
+
+struct funcionario{
+    int id;
+    string nome;
+    float salario;
+    float novo_salario;
+    int idade;
+    int tempo_empresa;
+};
+
+int main()
+{
+    setlocale(LC_ALL,"Portuguese");
+    int n = 0, func_sal_acima = 0, func_idade_50 = 0, func_10_empresa = 0;
+    float media_salarial = 0, maior_salario = 0, menor_salario = 0, percentual = 0;
+
+    cout << "----- GESTÃO DE FUNCIONÁRIOS -----" << endl;
+    cout << endl;
+    cout << "-> Número de funcionários (Entre 5 e 50): ";
+    cin >> n;
+    cout << endl;
+
+    if(n < 5 || n > 50){
+        do{
+            cout << "Valor inválido! Entre com um valor entre 5 e 50: ";
+            cin >> n;
+        }while(n < 5 || n > 50);
+    }
+
+    funcionario v_funcionario[5];
+
+    cout << "Preenchimento dos Dados dos Funcionários" << endl;
+    cout << endl;
+
+    for(int i = 0; i < n; i++){
+        cout << "Funcionário - ID " << i + 1 << ":" << endl;
+        v_funcionario[i].id = i + 1;
+
+        cin.ignore();
+        cout << "-> Nome: ";
+        getline(cin, v_funcionario[i].nome);
+
+        cout << "-> Salário: R$ ";
+        cin >> v_funcionario[i].salario;
+        media_salarial += v_funcionario[i].salario;
+
+        cout << "-> Idade: ";
+        cin >> v_funcionario[i].idade;
+
+        cout << "-> Anos de Empresa: ";
+        cin >> v_funcionario[i].tempo_empresa;
+        cout << endl;
+    }
+
+    media_salarial /= n;
+
+    for(int i = 0; i < n; i++){
+        if(v_funcionario[i].salario > maior_salario){
+            maior_salario = v_funcionario[i].salario;
+        }
+    }
+
+    menor_salario = maior_salario;
+
+    for(int i = 0; i < n; i++){
+        if(v_funcionario[i].salario < menor_salario){
+            menor_salario = v_funcionario[i].salario;
+        }
+    }
+
+    for(int i = 0; i < n; i++){
+        if(v_funcionario[i].salario > media_salarial){
+            func_sal_acima += 1;
+        }
+
+        if(v_funcionario[i].idade > 50){
+            func_idade_50 += 1;
+        }
+
+        if(v_funcionario[i].tempo_empresa > 10){
+            func_10_empresa += 1;
+        }
+    }
+
+    for(int i = 0; i < n; i++){
+        percentual = 0;
+
+        if(v_funcionario[i].tempo_empresa < 3){
+            percentual += 0.05;
+        }else if(v_funcionario[i].tempo_empresa <= 10){
+            percentual += 0.10;
+        }else{
+            percentual += 0.20;
+        }
+
+        if(v_funcionario[i].idade > 50){
+            percentual += 0.05;
+        }
+
+        if(v_funcionario[i].salario < media_salarial){
+            percentual += 0.05;
+        }
+
+        v_funcionario[i].novo_salario = v_funcionario[i].salario + v_funcionario[i].salario * percentual;
+    }
+
+    cout << "Lista Preenchida" << endl;
+    cout << endl;
+    for(int i = 0; i < n; i++){
+        cout << "Funcionário - ID: " << v_funcionario[i].id << endl;
+        cout << "-> Nome: " << v_funcionario[i].nome << endl;
+        cout << "-> Salário: R$ " << v_funcionario[i].salario << endl;
+        cout << "-> Salário Reajustado: R$ " << v_funcionario[i].novo_salario << endl;
+        cout << "-> Idade: " << v_funcionario[i].idade << endl;
+        cout << "-> Anos de Empresa: " << v_funcionario[i].tempo_empresa << endl;
+        cout << endl;
+    }
+}

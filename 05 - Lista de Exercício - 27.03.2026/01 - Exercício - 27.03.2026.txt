@@ -1,0 +1,86 @@
+1)
+
+#include <iostream>
+#include <locale>
+
+using namespace std;
+
+int main()
+{
+
+    setlocale(LC_ALL,"Portuguese");
+    int idade = 0;
+    char doenca = 'n', fumante = 'n';
+    float renda = 0, percentual = 1, valorbase = 0;
+
+    cout << "----- CÁLCULO PLANO DE SAÚDE -----" << endl;
+    cout << endl;
+    cout << "Questionário:" << endl;
+
+    cout << "Qual é a sua idade? ";
+    cin >> idade;
+
+    cout << "Possui doenças pré-existentes? (S/N) ";
+    cin >> doenca;
+    if(doenca != 's' && doenca != 'S' && doenca != 'n' && doenca != 'N'){
+        do{
+        cout << "Valor inválido! Entre com S ou N: ";
+        cin >> doenca;
+        }while(doenca != 's' && doenca != 'S' && doenca != 'n' && doenca != 'N');
+    }
+
+    cout << "É fumante? (S/N) ";
+    cin >> fumante;
+    if(fumante != 's' && fumante != 'S' && fumante != 'n' && fumante != 'N'){
+        do{
+        cout << "Valor inválido! Entre com S ou N: ";
+        cin >> fumante;
+        }while(fumante != 's' && fumante != 'S' && fumante != 'n' && fumante != 'N');
+    }
+
+    cout << "Qual é a sua renda mensal? R$ ";
+    cin >> renda;
+
+    if(idade <= 18){
+        valorbase = 100;
+    }else if(idade <= 40){
+        valorbase = 180;
+    }else if( idade <= 60){
+        valorbase = 300;
+    }else{
+        valorbase = 500;
+    }
+
+    if(doenca == 's'){
+        if(idade <= 40){
+            percentual += 0.3;
+        }else{
+            percentual += 0.5;
+        }
+    }
+
+    if(fumante == 's'){
+        if(idade <= 50){
+            percentual += 0.2;
+        }else{
+            percentual += 0.4;
+        }
+    }
+
+    if(renda < 2000){
+        percentual -= 0.2;
+    }else if(renda <= 5000){
+        percentual -= 0.1;
+    }
+
+    cout << endl;
+    cout << "Informações:" << endl;
+    cout << " > Idade: " << idade << endl;
+    cout << " > Doença pré-existente: " << doenca << endl;
+    cout << " > Fuma: " << fumante << endl;
+    cout << " > Renda: R$ " << renda << endl;
+    cout << endl;
+
+    cout << "Valor do plano: R$ " << valorbase * percentual;
+    cout << endl;
+}

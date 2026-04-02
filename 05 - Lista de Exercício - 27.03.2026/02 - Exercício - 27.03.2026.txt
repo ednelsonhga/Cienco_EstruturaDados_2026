@@ -1,0 +1,58 @@
+2)
+
+#include <iostream>
+#include <locale>
+
+using namespace std;
+
+int main()
+{
+
+    setlocale(LC_ALL,"Portuguese");
+    int a = 0, b = 0, c = 0, maior = 0;
+
+    cout << "----- CLASSIFICAÇÃO DE TRIÂNGULOS -----" << endl;
+    cout << endl;
+
+    cout << "Entre com 3 valores inteiro:" << endl;
+    cout << "A: ";
+    cin >> a;
+    cout << "B: ";
+    cin >> b;
+    cout << "C: ";
+    cin >> c;
+
+    if(a < b + c && b < a + c && c < a + b){
+
+        cout << endl;
+        cout << "Resultado:" << endl;
+        cout << " > É um triângulo." << endl;
+
+        if (a == b && b == c){
+            cout << " > É equilátero." << endl;
+        }else if(a != b && b!= c){
+            cout << " > É escaleno." << endl;
+        }else{
+            cout << " > É isósceles." << endl;
+        }
+
+        if(a > maior){
+            maior = a;
+        }else if(b > maior){
+            maior = b;
+        }else if(c > maior){
+            maior = c;
+        }
+
+        if(maior * maior == a * a + b * b){
+            cout << " > É retângulo." << endl;
+        }else if(maior * maior > a * a + b * b){
+            cout << " > É obtusângulo." << endl;
+        }else{
+            cout << " > É acutângulo." << endl;
+        }
+
+    }else{
+        cout << "Não forma um triângulo." << endl;
+    }
+}

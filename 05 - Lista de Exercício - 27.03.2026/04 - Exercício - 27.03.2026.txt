@@ -1,0 +1,118 @@
+4)
+
+#include <iostream>
+#include <locale>
+
+using namespace std;
+
+int main()
+{
+    setlocale(LC_ALL,"Portuguese");
+    float saldo = 1000, val_deposito = 0, val_saque = 0, t_depositado = 0, t_sacado = 0, maior_deposito = 0, maior_saque = 0;
+    int opcao, num_operacoes = 0;
+
+    cout << "----- SISTEMA DE CAIXA -----" << endl;
+    cout << endl;
+
+    do{
+        cout << "Opções:" << endl;
+        cout << "1 -> Depósito" << endl;
+        cout << "2 -> Saque" << endl;
+        cout << "3 -> Consulta" << endl;
+        cout << "4 -> Relatório Parcial" << endl;
+        cout << "0 -> Encerrar Sistema" << endl;
+        cout << "Opção escolhida: ";
+        cin >> opcao;
+        cout << endl;
+
+        switch(opcao){
+
+            case 1:
+                cout << "Selecionado: 1 -> Depósito" << endl;
+                cout << endl;
+                cout << "Valor do depósito: R$ ";
+                cin >>  val_deposito;
+
+                if(val_deposito < 0){
+                    do{
+                        cout << "Valor inválido. Entre com um valor positivo: R$ ";
+                        cin >> val_deposito;
+                    }while(val_deposito < 0);
+                }
+
+                saldo += val_deposito;
+                t_depositado += val_deposito;
+                if(val_deposito > maior_deposito){
+                    maior_deposito = val_deposito;
+                    }
+                num_operacoes += 1;
+                cout << endl;
+                break;
+
+            case 2:
+                cout << "Selecionado: 2 -> Saque" << endl;
+                cout << endl;
+                cout << "Valor do saque: R$ ";
+                cin >> val_saque;
+
+                if(val_saque < 0){
+                    do{
+                        cout << "Valor inválido. Entre com um valor positivo: R$ ";
+                        cin >> val_saque;
+                    }while(val_saque < 0);
+                }
+
+                if(val_saque > saldo){
+                    do{
+                        cout << "Saldo insuficiente (R$ " << saldo << "). Entre com outro valor: ";
+                        cin >> val_saque;
+                    }while(val_saque > saldo);
+                }
+
+                if(val_saque > saldo/2){
+                    cout << "Atenção! Saque de alto valor." << endl;
+                }
+
+                saldo -= val_saque;
+                t_sacado += val_saque;
+                if(val_saque > maior_saque){
+                    maior_saque = val_saque;
+                    }
+                num_operacoes += 1;
+                cout << endl;
+                break;
+
+            case 3:
+                cout << "Selecionado: 3 -> Consulta" << endl;
+                cout << endl;
+                cout << "Saldo atual: R$ " << saldo << endl;
+                cout << endl;
+                break;
+
+            case 4:
+                cout << "Selecionado: 4 -> Relatório Parcial" << endl;
+                cout << endl;
+                cout << "------------- Relatório -------------" << endl;
+                cout << "-> Total Depositado: R$ " << t_depositado << endl;
+                cout << "-> Total Sacado: R$ " << t_sacado << endl;
+                cout << "-> Total de Operações Realizadas: " << num_operacoes << endl;
+                cout << "-> Maior Deposito: R$ " << maior_deposito << endl;
+                cout << "-> Maior Saque: R$ " << maior_saque << endl;
+                cout << "-------------------------------------" << endl;
+
+                cout << endl;
+                break;
+
+            case 0:
+                cout << "Selecionado: 0 -> Encerrar Sistema" << endl;
+                break;
+
+            default:
+                cout << "Opção inválida!" << endl;
+                cout << endl;
+                break;
+        }
+
+    }while(opcao != 0);
+
+}
