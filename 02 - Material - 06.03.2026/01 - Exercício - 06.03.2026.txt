@@ -1,0 +1,54 @@
+1)
+
+#include <iostream>
+#include <locale>
+
+using namespace std;
+
+struct paciente {
+    string nome;
+    int idade;
+    string sintoma;
+};
+
+int main() {
+
+    setlocale (LC_ALL,"Portuguese");
+    int i = 0;
+
+    cout << "Cadastro de Pacientes" << endl;
+    cout << endl;
+    cout << "Quantos pacientes deseja cadastrar?: ";
+    cin >> i;
+    cout << endl;
+
+    paciente p[i];
+
+    for(int j = 0; j < i; j++){
+        cout << "Entre com os dados do paciente " << j+1 << endl;
+
+        cout << "Nome: ";
+        cin.ignore();
+        getline(cin, p[j].nome);
+
+        cout << "Idade: ";
+        cin >> p[j].idade;
+
+        cout << "Sintoma: ";
+        cin.ignore();
+        getline(cin, p[j].sintoma);
+
+        cout << endl;
+    }
+
+    cout << "Segue os registros abaixo:" << endl;
+    cout << endl;
+
+    for(int j = 0; j < i; j++){
+        cout << "Paciente " << j + 1 << "" << endl;
+        cout << "Nome: " << p[j].nome << endl;
+        cout << "Idade: " << p[j].idade << endl;
+        cout << "Sintoma: " << p[j].sintoma << endl;
+        cout << endl;
+    }
+}

@@ -1,0 +1,37 @@
+5)
+
+#include <iostream>
+#include <locale>
+
+using namespace std;
+
+typedef enum {Vermelho, Azul, Amarelo, Verde, Laranja, Roxo} cores;
+
+int main() {
+
+    setlocale (LC_ALL,"Portuguese");
+    int numcor;
+
+    cout << "Entre com o número de uma cor (1 a 6): ";
+    cin >> numcor;
+    cores cor;
+
+    if(numcor >= 1 && numcor <= 6){
+        cor = static_cast<cores>(numcor-1);
+    }else{
+        cout << "Número inválido!" << endl;
+        return 1;
+    }
+
+    cout << "Cor escolhida: ";
+    switch (cor){
+        case Vermelho: cout << "Vermelho."; break;
+        case Azul: cout << "Azul."; break;
+        case Amarelo: cout << "Amarelo."; break;
+        case Verde: cout << "Verde."; break;
+        case Laranja: cout << "Laranja."; break;
+        case Roxo: cout << "Roxo."; break;
+    }
+
+    cout << endl;
+}

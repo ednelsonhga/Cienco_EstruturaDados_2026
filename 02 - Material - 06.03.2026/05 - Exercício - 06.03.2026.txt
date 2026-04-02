@@ -1,0 +1,44 @@
+5)
+
+#include <iostream>
+#include <locale>
+
+using namespace std;
+
+struct pedido {
+    string nomeprato;
+    int quantidade;
+    float precototal;
+};
+
+int main() {
+
+    setlocale (LC_ALL,"Portuguese");
+    float precofim = 150.00;
+
+    cout << "Cadastro de Pedidos" << endl;
+    cout << endl;
+
+    pedido p[10];
+
+    int i = 0;
+    do{
+        cout << "Entre com os dados do pedido " << i+1 << endl;
+
+        cout << "Nome do prato: ";
+        getline(cin, p[i].nomeprato);
+
+        cout << "Quantidade: ";
+        cin >> p[i].quantidade;
+
+        cout << "Preço total: ";
+        cin >> p[i].precototal;
+
+        cout << endl;
+        cin.ignore();
+        i += 1;
+    }while(p[i-1].precototal != precofim);
+
+    cout << "O preço fim foi inserido." << endl;
+    cout << "Processo terminado." << endl;
+}

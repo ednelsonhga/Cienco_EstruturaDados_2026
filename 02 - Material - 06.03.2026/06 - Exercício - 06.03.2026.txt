@@ -1,0 +1,54 @@
+1)
+
+#include <iostream>
+#include <locale>
+
+using namespace std;
+
+typedef struct dados {
+    string nome;
+    string endereco;
+    int cpf;
+    int idade;
+};
+
+int main() {
+
+    setlocale (LC_ALL,"Portuguese");
+    dados pessoais[5];
+
+    cout << "Cadastro de Pessoa" << endl;
+    cout << endl;
+
+    for(int i = 0; i < 5; i++){
+
+        cout << "Entre com o nome: ";
+        getline(cin, pessoais[i].nome);
+
+        cout << "Entre com o endereço: ";
+        getline(cin, pessoais[i].endereco);
+
+        cout << "Entre com o CPF: ";
+        cin >> pessoais[i].cpf;
+
+        cout << "Entre com a idade: ";
+        cin >> pessoais[i].idade;
+        cout << endl;
+
+        cin.ignore();
+
+    }
+
+    cout << endl;
+    cout << "Segue dados preenchidos: " << endl;
+    cout << endl;
+
+    for(int i = 0; i < 5; i++){
+        cout << "Cadastro 0" << i+1 << endl;
+        cout << "Nome: " << pessoais[i].nome << endl;
+        cout << "Endereço: " << pessoais[i].endereco << endl;
+        cout << "CPF: " << pessoais[i].cpf << endl;
+        cout << "Idade: " << pessoais[i].idade << endl;
+        cout << endl;
+    }
+}

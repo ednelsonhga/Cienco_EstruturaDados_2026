@@ -1,0 +1,44 @@
+2)
+
+#include <iostream>
+#include <locale>
+
+using namespace std;
+
+struct livro {
+    string titulo;
+    string autor;
+    int ano;
+};
+
+int main() {
+
+    setlocale (LC_ALL,"Portuguese");
+    string livrofim = "fim";
+
+    cout << "Cadastro de Livros" << endl;
+    cout << endl;
+
+    livro p[10];
+
+    int i = 0;
+    do{
+        cout << "Entre com os dados do livro " << i+1 << endl;
+
+        cout << "Titulo: ";
+        getline(cin, p[i].titulo);
+
+        cout << "Autor: ";
+        getline(cin, p[i].autor);
+
+        cout << "Ano de lançamento: ";
+        cin >> p[i].ano;
+
+        cout << endl;
+        cin.ignore();
+        i += 1;
+    }while(p[i-1].titulo != livrofim);
+
+    cout << "O livro foi inserido." << endl;
+    cout << "Processo terminado." << endl;
+}

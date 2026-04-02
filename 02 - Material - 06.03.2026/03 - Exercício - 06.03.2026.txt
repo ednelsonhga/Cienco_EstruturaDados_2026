@@ -1,0 +1,73 @@
+3)
+
+#include <iostream>
+#include <locale>
+
+using namespace std;
+
+struct avaliacaofilme {
+    string nome;
+    int enredo;
+    int atuacao;
+    int cgi;
+};
+
+int main() {
+
+    setlocale (LC_ALL,"Portuguese");
+    int i = 0;
+    float medenredo = 0, medatuacao = 0, medcgi = 0;
+
+    cout << "Avaliação de Filmes" << endl;
+    cout << endl;
+    cout << "Quantos filmes deseja avaliar?: ";
+    cin >> i;
+    cout << endl;
+
+    avaliacaofilme v[i];
+
+    for(int j = 0; j < i; j++){
+        cout << "Avaliação do " << j+1 << "º filme" << endl;
+
+        cout << "Nome: ";
+        cin.ignore();
+        getline(cin, v[j].nome);
+
+        cout << "Enredo (x/10): ";
+        cin >> v[j].enredo;
+
+        cout << "Atuação (x/10): ";
+        cin >> v[j].atuacao;
+
+        cout << "CGI (x/10): ";
+        cin >> v[j].cgi;
+
+        cout << endl;
+    }
+
+    cout << "Segue os registros abaixo:" << endl;
+    cout << endl;
+
+    for(int j = 0; j < i; j++){
+
+    cout << "Nome: " << v[j].nome << endl;
+    cout << "Enredo: " << v[j].enredo << "/10" << endl;
+    cout << "Atuação: " << v[j].atuacao << "/10" << endl;
+    cout << "CGI: " << v[j].cgi << "/10" << endl;
+    cout << endl;
+
+    medatuacao += v[j].atuacao;
+    medenredo += v[j].enredo;
+    medcgi += v[j].cgi;
+    }
+
+    medatuacao /= i;
+    medenredo /= i;
+    medcgi /= i;
+
+    cout << "Médias" << endl;
+    cout << "Atuação: " << medatuacao << endl;
+    cout << "Enredo: " << medenredo<< endl;
+    cout << "CGI: " << medcgi<< endl;
+
+}

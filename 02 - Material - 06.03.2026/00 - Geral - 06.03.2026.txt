@@ -1,0 +1,514 @@
+STRUCT
+
+1)
+
+#include <iostream>
+#include <locale>
+
+using namespace std;
+
+struct paciente {
+    string nome;
+    int idade;
+    string sintoma;
+};
+
+int main() {
+
+    setlocale (LC_ALL,"Portuguese");
+    int i = 0;
+
+    cout << "Cadastro de Pacientes" << endl;
+    cout << endl;
+    cout << "Quantos pacientes deseja cadastrar?: ";
+    cin >> i;
+    cout << endl;
+
+    paciente p[i];
+
+    for(int j = 0; j < i; j++){
+        cout << "Entre com os dados do paciente " << j+1 << endl;
+
+        cout << "Nome: ";
+        cin.ignore();
+        getline(cin, p[j].nome);
+
+        cout << "Idade: ";
+        cin >> p[j].idade;
+
+        cout << "Sintoma: ";
+        cin.ignore();
+        getline(cin, p[j].sintoma);
+
+        cout << endl;
+    }
+
+    cout << "Segue os registros abaixo:" << endl;
+    cout << endl;
+
+    for(int j = 0; j < i; j++){
+        cout << "Paciente " << j + 1 << "" << endl;
+        cout << "Nome: " << p[j].nome << endl;
+        cout << "Idade: " << p[j].idade << endl;
+        cout << "Sintoma: " << p[j].sintoma << endl;
+        cout << endl;
+    }
+}
+
+2)
+
+#include <iostream>
+#include <locale>
+
+using namespace std;
+
+struct livro {
+    string titulo;
+    string autor;
+    int ano;
+};
+
+int main() {
+
+    setlocale (LC_ALL,"Portuguese");
+    string livrofim = "fim";
+
+    cout << "Cadastro de Livros" << endl;
+    cout << endl;
+
+    livro p[10];
+
+    int i = 0;
+    do{
+        cout << "Entre com os dados do livro " << i+1 << endl;
+
+        cout << "Titulo: ";
+        getline(cin, p[i].titulo);
+
+        cout << "Autor: ";
+        getline(cin, p[i].autor);
+
+        cout << "Ano de lançamento: ";
+        cin >> p[i].ano;
+
+        cout << endl;
+        cin.ignore();
+        i += 1;
+    }while(p[i-1].titulo != livrofim);
+
+    cout << "O livro foi inserido." << endl;
+    cout << "Processo terminado." << endl;
+}
+
+3)
+
+#include <iostream>
+#include <locale>
+
+using namespace std;
+
+struct avaliacaofilme {
+    string nome;
+    int enredo;
+    int atuacao;
+    int cgi;
+};
+
+int main() {
+
+    setlocale (LC_ALL,"Portuguese");
+    int i = 0;
+    float medenredo = 0, medatuacao = 0, medcgi = 0;
+
+    cout << "Avaliação de Filmes" << endl;
+    cout << endl;
+    cout << "Quantos filmes deseja avaliar?: ";
+    cin >> i;
+    cout << endl;
+
+    avaliacaofilme v[i];
+
+    for(int j = 0; j < i; j++){
+        cout << "Avaliação do " << j+1 << "º filme" << endl;
+
+        cout << "Nome: ";
+        cin.ignore();
+        getline(cin, v[j].nome);
+
+        cout << "Enredo (x/10): ";
+        cin >> v[j].enredo;
+
+        cout << "Atuação (x/10): ";
+        cin >> v[j].atuacao;
+
+        cout << "CGI (x/10): ";
+        cin >> v[j].cgi;
+
+        cout << endl;
+    }
+
+    cout << "Segue os registros abaixo:" << endl;
+    cout << endl;
+
+    for(int j = 0; j < i; j++){
+
+    cout << "Nome: " << v[j].nome << endl;
+    cout << "Enredo: " << v[j].enredo << "/10" << endl;
+    cout << "Atuação: " << v[j].atuacao << "/10" << endl;
+    cout << "CGI: " << v[j].cgi << "/10" << endl;
+    cout << endl;
+
+    medatuacao += v[j].atuacao;
+    medenredo += v[j].enredo;
+    medcgi += v[j].cgi;
+    }
+
+    medatuacao /= i;
+    medenredo /= i;
+    medcgi /= i;
+
+    cout << "Médias" << endl;
+    cout << "Atuação: " << medatuacao << endl;
+    cout << "Enredo: " << medenredo<< endl;
+    cout << "CGI: " << medcgi<< endl;
+
+}
+
+4)
+
+#include <iostream>
+#include <locale>
+
+using namespace std;
+
+struct avaliacaoaluno {
+    string nome;
+    float nota;
+    string status;
+};
+
+int main() {
+
+    setlocale (LC_ALL,"Portuguese");
+    int i = 0;
+
+    cout << "Avaliação de Alunos" << endl;
+    cout << endl;
+    cout << "Quantos alunos deseja avaliar?: ";
+    cin >> i;
+    cout << endl;
+
+    avaliacaoaluno v[i];
+
+    for(int j = 0; j < i; j++){
+        cout << "Avaliação do " << j+1 << "º aluno" << endl;
+
+        cout << "Nome: ";
+        cin.ignore();
+        getline(cin, v[j].nome);
+
+        cout << "Nota: ";
+        cin >> v[j].nota;
+
+        if (v[j].nota < 6){
+            v[j].status = "Reprovado";
+        }else{
+            v[j].status = "Aprovado";
+        }
+
+        cout << endl;
+    }
+
+    cout << "Segue os registros abaixo:" << endl;
+    cout << endl;
+
+    for(int j = 0; j < i; j++){
+
+    cout << "Nome: " << v[j].nome << endl;
+    cout << "Nota: " << v[j].nota << endl;
+    cout << "Status: " << v[j].status << endl;
+    cout << endl;
+
+    }
+}
+
+5)
+
+#include <iostream>
+#include <locale>
+
+using namespace std;
+
+struct pedido {
+    string nomeprato;
+    int quantidade;
+    float precototal;
+};
+
+int main() {
+
+    setlocale (LC_ALL,"Portuguese");
+    float precofim = 150.00;
+
+    cout << "Cadastro de Pedidos" << endl;
+    cout << endl;
+
+    pedido p[10];
+
+    int i = 0;
+    do{
+        cout << "Entre com os dados do pedido " << i+1 << endl;
+
+        cout << "Nome do prato: ";
+        getline(cin, p[i].nomeprato);
+
+        cout << "Quantidade: ";
+        cin >> p[i].quantidade;
+
+        cout << "Preço total: ";
+        cin >> p[i].precototal;
+
+        cout << endl;
+        cin.ignore();
+        i += 1;
+    }while(p[i-1].precototal != precofim);
+
+    cout << "O preço fim foi inserido." << endl;
+    cout << "Processo terminado." << endl;
+}
+
+TYPEDEF
+
+1)
+
+#include <iostream>
+#include <locale>
+
+using namespace std;
+
+typedef struct dados {
+    string nome;
+    string endereco;
+    int cpf;
+    int idade;
+};
+
+int main() {
+
+    setlocale (LC_ALL,"Portuguese");
+    dados pessoais[5];
+
+    cout << "Cadastro de Pessoa" << endl;
+    cout << endl;
+
+    for(int i = 0; i < 5; i++){
+
+        cout << "Entre com o nome: ";
+        getline(cin, pessoais[i].nome);
+
+        cout << "Entre com o endereço: ";
+        getline(cin, pessoais[i].endereco);
+
+        cout << "Entre com o CPF: ";
+        cin >> pessoais[i].cpf;
+
+        cout << "Entre com a idade: ";
+        cin >> pessoais[i].idade;
+        cout << endl;
+
+        cin.ignore();
+
+    }
+
+    cout << endl;
+    cout << "Segue dados preenchidos: " << endl;
+    cout << endl;
+
+    for(int i = 0; i < 5; i++){
+        cout << "Cadastro 0" << i+1 << endl;
+        cout << "Nome: " << pessoais[i].nome << endl;
+        cout << "Endereço: " << pessoais[i].endereco << endl;
+        cout << "CPF: " << pessoais[i].cpf << endl;
+        cout << "Idade: " << pessoais[i].idade << endl;
+        cout << endl;
+    }
+
+}
+
+2)
+
+#include <iostream>
+#include <locale>
+
+using namespace std;
+
+typedef struct animal {
+    string nome;
+    string especie;
+    int idade;
+    float peso;
+};
+
+int main() {
+
+    setlocale (LC_ALL,"Portuguese");
+    animal listanimais[10];
+
+    cout << "Cadastro de Animais" << endl;
+    cout << endl;
+
+    for(int i = 0; i < 10; i++){
+
+        cout << "Entre com o nome: ";
+        getline(cin, listanimais[i].nome);
+
+        cout << "Entre com a espécie: ";
+        getline(cin, listanimais[i].especie);
+
+        cout << "Entre com a idade: ";
+        cin >> listanimais[i].idade;
+
+        cout << "Entre com o peso: ";
+        cin >> listanimais[i].peso;
+        cout << endl;
+
+        cin.ignore();
+
+    }
+
+    cout << endl;
+    cout << "Segue dados preenchidos: " << endl;
+    cout << endl;
+
+    for(int i = 0; i < 10; i++){
+        cout << "Cadastro 0" << i+1 << endl;
+        cout << "Nome: " << listanimais[i].nome << endl;
+        cout << "Espécie: " << listanimais[i].especie << endl;
+        cout << "Idade: " << listanimais[i].idade << endl;
+        cout << "Peso: " << listanimais[i].peso << endl;
+        cout << endl;
+    }
+
+}
+
+3)
+
+#include <iostream>
+#include <locale>
+
+using namespace std;
+
+typedef struct endereco {
+    string rua;
+    string cidade;
+    int cep;
+};
+
+int main() {
+
+    setlocale (LC_ALL,"Portuguese");
+    endereco tipoendereco[3];
+
+    cout << "Cadastro de Endereço" << endl;
+    cout << endl;
+
+    for(int i = 0; i < 3; i++){
+
+        cout << "Entre com o nome da rua: ";
+        getline(cin, tipoendereco[i].rua);
+
+        cout << "Entre com a cidade: ";
+        getline(cin, tipoendereco[i].cidade);
+
+        cout << "Entre com o CEP: ";
+        cin >> tipoendereco[i].cep;
+        cout << endl;
+
+        cin.ignore();
+
+    }
+
+    cout << endl;
+    cout << "Segue dados preenchidos: " << endl;
+    cout << endl;
+
+    for(int i = 0; i < 3; i++){
+        cout << "Cadastro 0" << i+1 << endl;
+        cout << "Rua: " << tipoendereco[i].rua << endl;
+        cout << "Cidade: " << tipoendereco[i].cidade << endl;
+        cout << "CEP: " << tipoendereco[i].cep << endl;
+        cout << endl;
+    }
+
+}
+
+4)
+
+#include <iostream>
+#include <locale>
+#include <vector>
+
+using namespace std;
+
+typedef vector<int> vetorinteiros;
+
+int main() {
+
+    setlocale (LC_ALL,"Portuguese");
+    vetorinteiros numero(5);
+
+    cout << "Cadastro de Inteiros" << endl;
+    cout << endl;
+
+    for(int i = 0; i < 5; i++){
+        cout << "Entre com um valor inteiro: ";
+        cin >> numero[i];
+    }
+
+    cout << endl;
+    cout << "Segue dados preenchidos: " << endl;
+    cout << endl;
+
+    for(int i = 0; i < 5; i++){
+        cout << "Valor 0" << i+1 << ": " << numero[i] << endl;
+    }
+    cout << endl;
+}
+
+5)
+
+#include <iostream>
+#include <locale>
+
+using namespace std;
+
+typedef enum {Vermelho, Azul, Amarelo, Verde, Laranja, Roxo} cores;
+
+int main() {
+
+    setlocale (LC_ALL,"Portuguese");
+    int numcor;
+
+    cout << "Entre com o número de uma cor (1 a 6): ";
+    cin >> numcor;
+    cores cor;
+
+    if(numcor >= 1 && numcor <= 6){
+        cor = static_cast<cores>(numcor-1);
+    }else{
+        cout << "Número inválido!" << endl;
+        return 1;
+    }
+
+    cout << "Cor escolhida: ";
+    switch (cor){
+        case Vermelho: cout << "Vermelho."; break;
+        case Azul: cout << "Azul."; break;
+        case Amarelo: cout << "Amarelo."; break;
+        case Verde: cout << "Verde."; break;
+        case Laranja: cout << "Laranja."; break;
+        case Roxo: cout << "Roxo."; break;
+    }
+
+    cout << endl;
+}

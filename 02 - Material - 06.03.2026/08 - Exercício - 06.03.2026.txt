@@ -1,0 +1,49 @@
+3)
+
+#include <iostream>
+#include <locale>
+
+using namespace std;
+
+typedef struct endereco {
+    string rua;
+    string cidade;
+    int cep;
+};
+
+int main() {
+
+    setlocale (LC_ALL,"Portuguese");
+    endereco tipoendereco[3];
+
+    cout << "Cadastro de Endereço" << endl;
+    cout << endl;
+
+    for(int i = 0; i < 3; i++){
+
+        cout << "Entre com o nome da rua: ";
+        getline(cin, tipoendereco[i].rua);
+
+        cout << "Entre com a cidade: ";
+        getline(cin, tipoendereco[i].cidade);
+
+        cout << "Entre com o CEP: ";
+        cin >> tipoendereco[i].cep;
+        cout << endl;
+
+        cin.ignore();
+
+    }
+
+    cout << endl;
+    cout << "Segue dados preenchidos: " << endl;
+    cout << endl;
+
+    for(int i = 0; i < 3; i++){
+        cout << "Cadastro 0" << i+1 << endl;
+        cout << "Rua: " << tipoendereco[i].rua << endl;
+        cout << "Cidade: " << tipoendereco[i].cidade << endl;
+        cout << "CEP: " << tipoendereco[i].cep << endl;
+        cout << endl;
+    }
+}

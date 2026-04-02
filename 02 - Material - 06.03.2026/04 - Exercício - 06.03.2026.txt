@@ -1,0 +1,57 @@
+4)
+
+#include <iostream>
+#include <locale>
+
+using namespace std;
+
+struct avaliacaoaluno {
+    string nome;
+    float nota;
+    string status;
+};
+
+int main() {
+
+    setlocale (LC_ALL,"Portuguese");
+    int i = 0;
+
+    cout << "Avaliação de Alunos" << endl;
+    cout << endl;
+    cout << "Quantos alunos deseja avaliar?: ";
+    cin >> i;
+    cout << endl;
+
+    avaliacaoaluno v[i];
+
+    for(int j = 0; j < i; j++){
+        cout << "Avaliação do " << j+1 << "º aluno" << endl;
+
+        cout << "Nome: ";
+        cin.ignore();
+        getline(cin, v[j].nome);
+
+        cout << "Nota: ";
+        cin >> v[j].nota;
+
+        if (v[j].nota < 6){
+            v[j].status = "Reprovado";
+        }else{
+            v[j].status = "Aprovado";
+        }
+
+        cout << endl;
+    }
+
+    cout << "Segue os registros abaixo:" << endl;
+    cout << endl;
+
+    for(int j = 0; j < i; j++){
+
+    cout << "Nome: " << v[j].nome << endl;
+    cout << "Nota: " << v[j].nota << endl;
+    cout << "Status: " << v[j].status << endl;
+    cout << endl;
+
+    }
+}

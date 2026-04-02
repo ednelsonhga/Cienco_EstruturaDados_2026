@@ -1,0 +1,32 @@
+4)
+
+#include <iostream>
+#include <locale>
+#include <vector>
+
+using namespace std;
+
+typedef vector<int> vetorinteiros;
+
+int main() {
+
+    setlocale (LC_ALL,"Portuguese");
+    vetorinteiros numero(5);
+
+    cout << "Cadastro de Inteiros" << endl;
+    cout << endl;
+
+    for(int i = 0; i < 5; i++){
+        cout << "Entre com um valor inteiro: ";
+        cin >> numero[i];
+    }
+
+    cout << endl;
+    cout << "Segue dados preenchidos: " << endl;
+    cout << endl;
+
+    for(int i = 0; i < 5; i++){
+        cout << "Valor 0" << i+1 << ": " << numero[i] << endl;
+    }
+    cout << endl;
+}
