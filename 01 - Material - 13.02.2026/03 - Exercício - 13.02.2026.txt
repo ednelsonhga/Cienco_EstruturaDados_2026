@@ -1,0 +1,27 @@
+3)
+
+#include <iostream>
+
+using namespace std;
+
+int main(){
+
+    int v[10], multv[10];
+    int mult = 0;
+
+    for(int i = 0; i < 10; i++){
+        cout << "Digite o numero 0" << i + 1 << ": ";
+        cin >> v[i];
+    }
+
+    cout << "Digite um valor para multiplicar: ";
+    cin >> mult;
+
+    for(int i = 0; i < 10; i++){
+        multv[i] = mult * v[i];
+    }
+
+    for(int i = 0; i < 10; i++){
+        cout << "Valor mult. 0" << i + 1 << ": " << multv[i] << endl;
+    }
+}

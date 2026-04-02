@@ -1,0 +1,37 @@
+2)
+
+#include <iostream>
+
+using namespace std;
+
+int main(){
+
+    float notas[20];
+    float media = 0;
+    int qtdeacimamedia = 0;
+
+    for(int i = 0; i < 20; i++){
+        cout << "Digite a media do aluno " << i + 1 << ": ";
+        cin >> notas[i];
+        media += notas[i];
+    }
+
+    media /= 20;
+
+    for(int i = 0; i < 20; i++){
+        if(notas[i] > media){
+            qtdeacimamedia += 1;
+        }
+    }
+
+    cout << endl;
+    cout << "Notas:" << endl;
+
+    for(int i = 0; i < 20; i++){
+        cout << "Aluno " << i + 1 << ": " << notas[i] << endl;
+    }
+
+    cout << endl;
+    cout << "Media: " << media << endl;
+    cout << "Qtde acima da media: " << qtdeacimamedia << endl;
+}

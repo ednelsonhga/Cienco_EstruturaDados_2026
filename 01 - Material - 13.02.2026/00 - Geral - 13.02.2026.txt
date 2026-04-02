@@ -1,0 +1,235 @@
+ARRAYS
+
+1)
+
+#include <iostream>
+
+using namespace std;
+
+int main(){
+
+    string nomes[10];
+    string proc;
+
+    for(int i = 0; i < 10; i++){
+        cout << "Digite o nome 0" << i + 1 << ": ";
+        cin >> nomes[i];
+    }
+
+    cout << "Digite um nome que sera pesquisado: ";
+    cin >> proc;
+
+    for(int i = 0; i < 10; i++){
+        if(nomes[i] == proc){
+            cout << "ACHEI";
+            return 0;
+        }
+    }
+    cout << "NAO ACHEI";
+}
+
+2)
+
+#include <iostream>
+
+using namespace std;
+
+int main(){
+
+    float notas[20];
+    float media = 0;
+    int qtdeacimamedia = 0;
+
+    for(int i = 0; i < 20; i++){
+        cout << "Digite a media do aluno " << i + 1 << ": ";
+        cin >> notas[i];
+        media += notas[i];
+    }
+
+    media /= 20;
+
+    for(int i = 0; i < 20; i++){
+        if(notas[i] > media){
+            qtdeacimamedia += 1;
+        }
+    }
+
+    cout << endl;
+    cout << "Notas:" << endl;
+
+    for(int i = 0; i < 20; i++){
+        cout << "Aluno " << i + 1 << ": " << notas[i] << endl;
+    }
+
+    cout << endl;
+    cout << "Media: " << media << endl;
+    cout << "Qtde acima da media: " << qtdeacimamedia << endl;
+}
+
+3)
+
+#include <iostream>
+
+using namespace std;
+
+int main(){
+
+    int v[10], multv[10];
+    int mult = 0;
+
+    for(int i = 0; i < 10; i++){
+        cout << "Digite o numero 0" << i + 1 << ": ";
+        cin >> v[i];
+    }
+
+    cout << "Digite um valor para multiplicar: ";
+    cin >> mult;
+
+    for(int i = 0; i < 10; i++){
+        multv[i] = mult * v[i];
+    }
+
+    for(int i = 0; i < 10; i++){
+        cout << "Valor mult. 0" << i + 1 << ": " << multv[i] << endl;
+    }
+}
+
+4)
+
+#include <iostream>
+
+using namespace std;
+
+int main(){
+
+    int v[20];
+
+    for(int i = 0; i < 20; i++){
+        cout << "Digite o numero " << i + 1 << ": ";
+        cin >> v[i];
+    }
+
+    for(int i = 19; i >= 0; i--){
+        cout << "Valor " << i + 1 << ": " << v[i] << endl;
+    }
+}
+
+5)
+
+#include <iostream>
+
+using namespace std;
+
+int main(){
+
+    int tam = 0;
+
+    cout << "Entre com o tamanho: ";
+    cin >> tam;
+
+    int a[tam], b[tam], soma[tam];
+
+    for(int i = 0; i < tam; i++){
+        cout << "Digite o numero " << i + 1 << " para o vetor A: ";
+        cin >> a[i];
+    }
+
+    for(int i = 0; i < tam; i++){
+        cout << "Digite o numero " << i + 1 << " para o vetor B: ";
+        cin >> b[i];
+    }
+
+    for(int i = 0; i < tam; i++){
+        soma[i] = a[i] + b[i];
+    }
+
+    for(int i = 0; i < tam; i++){
+        cout << "Soma " << i + 1 << ": " << soma[i] << endl;
+    }
+}
+
+6)
+
+#include <iostream>
+
+using namespace std;
+
+int main(){
+
+    int tempano[365];
+    int menor = 40, maior = 0, media = 0, infmedia = 0;
+
+    for(int i = 0; i < 365; i++){
+        tempano[i] = rand() % (40 - 0 + 1) - 0;
+        media += tempano[i];
+    }
+
+    media /= 365;
+
+    for(int i = 0; i < 365; i++){
+        if(tempano[i] > maior){
+            maior = tempano[i];
+        }
+        if(tempano[i] < menor){
+            menor = tempano[i];
+        }
+        if(tempano[i] < media){
+            infmedia += 1;
+        }
+    }
+
+    cout << "Registro de temperatura em Mogi Mirim no ano de 2025" << endl;
+    for(int i = 0; i < 365; i++){
+        cout << "Dia " << i + 1 << ": " << tempano[i] << endl;
+    }
+
+    cout << endl;
+    cout << "Menor temperatura do ano: " << menor << endl;
+    cout << "Maior temperatura do ano: " << maior << endl;
+    cout << "Temperatura media anual: " << media << endl;
+    cout << "Qtde de dias inferior a media: " << infmedia << endl;
+}
+
+
+
+
+PONTEIROS
+
+1)
+
+a - V
+b - F
+c - F
+d - V
+
+2)  -  575
+
+3) - 577
+
+4) - 52020
+
+5) *
+
+6) Um endereço de outra variável.
+
+7) 
+
+#include <iostream>
+
+using namespace std;
+
+int main(){
+
+    int v[10];
+    int *p[10];
+
+    for(int i = 0; i < 10; i++){
+        cout << "Digite o valor 0" << i + 1 << ": ";
+        cin >> v[i];
+        p[i] = &v[i];
+    }
+
+    for(int i = 0; i < 10; i++){
+        cout << "Valor 0" << i + 1 << ": " << *p[i] << endl;
+    }
+}

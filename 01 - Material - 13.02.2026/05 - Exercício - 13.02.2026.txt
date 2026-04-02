@@ -1,0 +1,33 @@
+5)
+
+#include <iostream>
+
+using namespace std;
+
+int main(){
+
+    int tam = 0;
+
+    cout << "Entre com o tamanho: ";
+    cin >> tam;
+
+    int a[tam], b[tam], soma[tam];
+
+    for(int i = 0; i < tam; i++){
+        cout << "Digite o numero " << i + 1 << " para o vetor A: ";
+        cin >> a[i];
+    }
+
+    for(int i = 0; i < tam; i++){
+        cout << "Digite o numero " << i + 1 << " para o vetor B: ";
+        cin >> b[i];
+    }
+
+    for(int i = 0; i < tam; i++){
+        soma[i] = a[i] + b[i];
+    }
+
+    for(int i = 0; i < tam; i++){
+        cout << "Soma " << i + 1 << ": " << soma[i] << endl;
+    }
+}

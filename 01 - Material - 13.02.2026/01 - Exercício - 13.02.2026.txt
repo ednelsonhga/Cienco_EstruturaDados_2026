@@ -1,0 +1,27 @@
+1)
+
+#include <iostream>
+
+using namespace std;
+
+int main(){
+
+    string nomes[10];
+    string proc;
+
+    for(int i = 0; i < 10; i++){
+        cout << "Digite o nome 0" << i + 1 << ": ";
+        cin >> nomes[i];
+    }
+
+    cout << "Digite um nome que sera pesquisado: ";
+    cin >> proc;
+
+    for(int i = 0; i < 10; i++){
+        if(nomes[i] == proc){
+            cout << "ACHEI";
+            return 0;
+        }
+    }
+    cout << "NAO ACHEI";
+}
